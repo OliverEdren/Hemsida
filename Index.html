@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Oliver Edrén</title>
+
+<link rel="stylesheet" href="./style.css">
+<link rel="icon" type="image/x-icon" href="ikon.svg"> 
+  <style>
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    a {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+      text-decoration: inherit;
+      cursor: inherit;
+    }
+
+    body {
+      margin: 0 5%; /* 5% marginal i sidorna */
+      padding: 0;
+      font-family: Arial, sans-serif;
+      cursor: url(ned.svg), auto; /* Standardmuspekare */
+    }
+
+       @font-face {
+      font-family: TimesNow;
+      src: url(TimesNow-SemiLight.woff2);
+    }
+
+    .textv:hover {
+      cursor: url(klick.svg), auto;
+      text-decoration: underline;
+    }
+
+    .texth:hover {
+      cursor: url(klick.svg), auto;
+      text-decoration: underline;
+    }
+
+    .textv {
+      font-family: Helvetica;
+      font-size: 35px;
+      text-align: center;
+      position: fixed;
+      top: 1.5%; /* Justera position */
+      left: 1.5%;
+      z-index: 1;
+    }
+
+    .texth {
+      font-family: Helvetica;
+      font-size: 35px;
+      text-align: center;
+      position: fixed;
+      top: 1.5%; /* Justera position */
+      right: 1.5%;
+      z-index: 1;
+    }
+
+    .textc {
+      display: none;
+      font-family: Helvetica;
+      font-size: 35px;
+      text-align: center;
+      position: fixed;
+      top: 45%; /* Justera position */
+      right: 43.5%;
+      z-index: 1;
+    }
+
+    .textsv {
+      font-family: Helvetica;
+      color: black;
+      font-size: 35px;
+      position: fixed;
+      bottom: 1.5%;
+      left: 1.5%;
+      z-index: 1;
+    }
+
+    .textsh {
+      font-family: Helvetica;
+      color: black;
+      font-size: 35px;
+      position: fixed;
+      bottom: 1.5%;
+      right: 1.5%;
+      z-index: 1;
+    }
+
+    .textcm {
+      display: none;
+      font-family: Helvetica;
+      font-size: 35px;
+      text-align: center;
+      position: fixed;
+      top: 45%; /* Justera position */
+      right: 43.5%;
+      z-index: 1;
+    }
+
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; /* Jämnt fördelade kolumner */
+      gap: 5%;
+      user-select: none;
+    }
+
+    .image-column {
+      flex-basis: calc(20% - 5%);
+      position: relative;
+    }
+
+    .image-column img {
+  width: 100%;
+  margin-bottom: calc(35% + 25vh); /* Variabelt avstånd mellan bilderna */
+  object-fit: cover;
+  display: block;
+  opacity: 0; /* Initial opacitet */
+  transition: opacity 0.5s ease; /* Övergång för opacitet */
+}
+
+.image-column img.loaded {
+  opacity: 1; /* Full opacitet när bilden är laddad */
+}
+
+
+    /* .image-column img:hover {
+      filter: grayscale(0%);
+    } */
+
+    @media screen and (max-width: 480px) {
+
+      .textv {
+        font-size: 25px;
+        top: 5%;
+        left: 5%;
+        transform: translateX(-5%);
+      }
+
+      .texth {
+        font-size: 25px;
+        top: 5%;
+        right: 5%;
+        transform: translateX(-5%);
+      }
+
+      .textsv {
+        font-size: 25px;
+        top: 95%;
+        left: 5%;
+        transform: translateX(-5%);
+      }
+
+      .textsh {
+        font-size: 25px;
+        top: 95%;
+        right: 5%;
+        transform: translateX(5%);
+      }
+
+      .textc {
+        display: none;
+      }
+
+      .textcm {
+        display: none;
+        left: 31%;
+        font-size: 25px;
+        white-space: nowrap;
+      }
+
+      .image-column {
+      flex-basis: calc(33.33% - 5%);
+      }
+    }
+
+    @media screen and (min-width: 481px) and (max-width: 767px) {
+      .textv {
+        font-size: 25px;
+        top: 2.5%;
+        left: 2.5%;
+        transform: translateX(-2.5%);
+        transform: translateY(2.5%);
+      }
+      .texth {
+        font-size: 25px;
+        top: 2.5%;
+        right: 2.5%;
+        transform: translateX(2.5%);
+        transform: translateY(2.5%);
+      }
+      .textc {
+        display: none;
+      }
+  
+      .image-column {
+      flex-basis: calc(16.66% - 5%);
+      }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      .textc {
+        left: 37%;
+        top: 50%;
+        transform: translateY(-50%);
+        white-space: nowrap;
+      }
+      .textv, .texth {
+        top: 2.5%;
+        transform: translateY(-2.5%);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <body oncontextmenu="return false;">
+  <!-- Din befintliga HTML-kod här -->
+</body>
+
+
+  <div class="textv">
+    <a href="info.html">Info</a>
+  </div>
+
+  <div class="texth" id="indexLink">
+    <a href="index.html" onmouseover="changeText()" onmouseout="resetText()">Index</a>
+  </div>
+
+   <div class="textc">
+   /* Oliver Edrén
+    <br>
+    Arkitekt MSA */
+  </div> 
+
+  <div class="textsv">
+    Oliver Edrén
+  </div>
+
+  <div class="textsh">
+    Arkitekt MSA
+  </div>
+
+  <div class="textcm">
+    Oliver Edrén
+    <br>
+    Arkitekt MSA
+  </div>
+
+  <div class="image-container"></div>
+  <script>
+    const imageContainer = document.querySelector('.image-container');
+    const images = [
+      'D01.jpg',
+      'D02.jpg',
+      'D03.jpg',
+      'D04.jpg',
+      'D05.png',
+      'D06.png',
+      'D07.png',
+      'D08.png',
+      'D09.png',
+      'D10.png',
+      'D11.png',
+      'D12.png',
+      'D13.png',
+      'D14.png',
+      'D15.png',
+      'D16.png',
+      'D17.jpg',
+      'D18.jpg',
+      'D19.jpg',
+      'D20.jpg',
+      'D21.jpg',
+      'D22.jpg',
+      'D23.jpg',
+      'D24.png',
+      'D25.jpg',
+      /* 'D26.jpg', */
+      /* 'D27.jpg', */
+      'F01.jpg',
+      'F02.jpg',
+      'F03.jpg',
+      'F04.jpg',
+      /* 'F05.jpg', */
+      'F06.jpg',
+      'F07.png',
+      'F08.jpg',
+      'R01.jpg',
+      'R02.png',
+      'R03.png',
+      'R04.png',
+      'R05.png',
+      'T01.jpg',
+      'T02.jpg',
+      'T03.jpg',
+      'T04.jpg',
+      'T05.jpg',
+      'T06.jpg',
+      'TR01.png',
+      /* 'TR02.png', */
+      /* 'TR03.png', */
+      'DD01.png',
+      'DD02.png',
+      'DD03.gif',
+      /* 'DD04.png', */
+      'HÖ01.png',
+      'HÖ03.png',
+      'HÖ04.png',
+      'HÖ05.png',
+      'HÖ06.png',
+      'HÖ07.png',
+      'HÖ08.png',
+      'K01.png',
+      'K02.png',
+      'K03.png',
+      'K04.png',
+      'K05.png',
+      'K06.png',
+      'B01.png',
+      'B02.png',
+      'B03.png',
+      'LV01.png',
+    ];
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function createImageColumn(imageUrl) {
+  const column = document.createElement('div');
+  column.classList.add('image-column');
+  const image = document.createElement('img');
+  image.src = imageUrl;
+  image.onload = function() {
+    image.classList.add('loaded'); // Lägg till klassen 'loaded' när bilden laddas
+  };
+  column.appendChild(image);
+  return column;
+}
+
+
+    function getRandomMargin() {
+      return Math.floor(Math.random() * 71); // Slumpmässig margin mellan 0 och 70%
+    }
+
+    function getRandomImageMargin() {
+      return `calc(${Math.floor(Math.random() * 26) + 55}% + 25vh)`; // Slumpmässigt avstånd mellan 35% och 60%
+    }
+
+    function renderImages() {
+      shuffle(images);
+      images.forEach((imageUrl, index) => {
+        const column = createImageColumn(imageUrl);
+        if (index % 2 === 0) {
+          column.style.marginTop = `${getRandomMargin()}%`;
+          column.querySelector('img').style.marginBottom = getRandomImageMargin();
+        }
+        imageContainer.appendChild(column);
+      });
+    }
+
+    renderImages();
+
+    // Lägg till klickhändelse för att scrolla sidan uppåt när musen är på övre halvan av skärmen
+    document.addEventListener('mousemove', function(event) {
+      const mouseY = event.clientY;
+      const windowHeight = window.innerHeight;
+      if (mouseY < windowHeight / 2) {
+        document.body.style.cursor = 'url(upp.svg), auto';
+      } else {
+        document.body.style.cursor = 'url(ned.svg), auto';
+      }
+    });
+
+    // Lägg till klickhändelse för att scrolla sidan uppåt eller nedåt beroende på var muspekaren befinner sig
+    document.addEventListener('click', function(event) {
+      const mouseY = event.clientY;
+      const windowHeight = window.innerHeight;
+      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      if (mouseY < windowHeight / 2) {
+        // Om musen klickas på när den befinner sig på skärmens övre halva, scrolla uppåt
+        const scrollToPosition = currentScrollPosition - (windowHeight * 0.85); // Ändrad här för att scrolla upp 85% av sidans höjd
+        window.scrollTo({
+          top: scrollToPosition,
+          behavior: 'smooth' // Glatthet för rullningseffekten
+        });
+      } else {
+        // Om musen klickas på när den befinner sig på skärmens undre halva, scrolla nedåt
+        const scrollToPosition = currentScrollPosition + (windowHeight * 0.85); // Ändrad här för att scrolla ned 85% av sidans höjd
+        window.scrollTo({
+          top: scrollToPosition,
+          behavior: 'smooth' // Glatthet för rullningseffekten
+        });
+      }
+    });
+
+// Funktion för att ändra texten när muspekaren svävar över "Index"
+function changeText() {
+  var indexLink = document.getElementById("indexLink");
+  indexLink.innerHTML = "Kommer snart";
+}
+
+// Funktion för att återställa texten när muspekaren lämnar området
+function resetText() {
+  var indexLink = document.getElementById("indexLink");
+  indexLink.innerHTML = "Index";
+}
+
+// Lägg till händelselyssnare för att känna av när muspekaren svävar över "Index"
+var indexLink = document.getElementById("indexLink");
+indexLink.addEventListener("mouseenter", changeText);
+indexLink.addEventListener("mouseleave", resetText);
+
+  </script>
+</body>
+</html>

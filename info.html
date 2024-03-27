@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oliver Edrén</title>
+  <style>
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    a {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+      text-decoration: inherit;
+      cursor: inherit;
+    }
+
+    html {
+      cursor: url(klick.svg), auto;
+    }
+
+    body {
+      margin: 0 5%; /* 5% marginal i sidorna */
+      padding: 0;
+      font-family: Helvetica, sans-serif;
+    }
+
+    .texth:hover {
+      text-decoration: underline;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .textv {
+      font-family: Helvetica;
+      font-size: 35px;
+      text-align: left;
+      position: fixed;
+      top: 2.5%;
+      left: 1.5%;
+      z-index: 1;
+    }
+
+    .textvm {
+      display: none;
+      font-family: Helvetica;
+      font-size: 35px;
+      text-align: left;
+      position: fixed;
+      top: 2.5%;
+      left: 1.5%;
+      z-index: 1;
+    }
+
+    .texth {
+      font-family: Helvetica;
+      text-decoration: none;
+      font-size: 35px;
+      text-align: right;
+      position: fixed;
+      top: 2.5%;
+      right: 1%;
+      z-index: 1;
+    }
+
+    .bildv {
+      position: fixed;
+      right: 1.5%;
+      top: 52.5%;
+      transform: translateY(-50%);
+      height: 80%;
+      user-select: none;
+    }
+
+
+    @media screen and (max-width: 480px) {
+      .textv {
+        display: none;
+        font-size: 25px;
+        margin: 2.5%;
+      }
+
+      .textvm {
+      display: block;
+      font-family: Helvetica;
+      font-size: 25px;
+      margin: 2.5%;
+    }
+
+      .bildv {
+        margin: 2.5%;
+        right: 17.5%;
+        scale: 40%;
+        top: 55%;
+      }
+    }
+
+
+    @media screen and (min-width: 481px) and (max-width: 767px) {
+
+      .textv {
+        display: none;
+      }
+
+      .textvm {
+      display: block;
+      font-family: Helvetica;
+      font-size: 25px;
+      margin: 2.5%;
+    }
+
+      .bildv {
+        right: 5%;
+        scale: 110%;
+        top: 53%;
+      }
+
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+
+      .textv {
+        display: none;
+      }
+
+      .textvm {
+      display: block;
+      font-family: Helvetica;
+      background: red;
+      font-size: 25px;
+      margin: 2.5%;
+    }
+
+      .bildv {
+        right: 5%;
+        scale: 50%;
+        top: 53%;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="textv">
+  Info
+  <p>
+  <br>
+  <br>
+  Oliver Edrén
+  <br>
+  Arkitekt MSA
+  <p>
+  <br>
+  BSC Umeå Arkitekthögskola
+  <br>
+  MSC Kungliga Tekniska Högskolan
+  <p>
+  <br>
+  Kaminsky Arkitektur /
+  <br>
+  Umeå Arkitekthögskola
+  <p>
+  <a href="mailto:oliveredren@hotmail.com">
+  oliveredren@hotmail.com
+  </a>
+</div>
+
+<div class="textvm">
+  Info
+  <p>
+  Oliver Edrén
+  <br>
+  Arkitekt MSA
+  <p>
+  BSC Umeå Arkitekthögskola
+  <br>
+  MSC Kungliga Tekniska Högskolan
+  <p>
+  Kaminsky Arkitektur /
+  <br>
+  Umeå Arkitekthögskola
+  <p>
+  <a href="mailto:oliveredren@hotmail.com">
+  oliveredren@hotmail.com
+  </a>
+</div>
+
+<div class="texth">
+  <a href="Index.html">
+  X
+</a>
+</div>
+
+<img src="OE01.png" class="bildv">
+
+  <script>
+  </script>
+</body>
+</html>
